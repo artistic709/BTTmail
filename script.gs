@@ -1,0 +1,19 @@
+function sendEmails() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var startRow = 2;
+  var getRowCount = sheet.getRange(1,5,1,1)
+  var numRows = getRowCount.getValue()
+  
+  var dataRange = sheet.getRange(startRow, 2, numRows, 2)
+  var data = dataRange.getValues();
+  for (i in data) {
+    var row = data[i];
+    var emailAddress = row[1];
+    var subject = "《過溪行》第一期";
+    MailApp.sendEmail(emailAddress, subject, '', {
+      name: '桃步走',
+      htmlBody:
+      '<table bgcolor="#4CAF50" border="0" cellspacing="0" cellpadding="0">    <tbody>        <tr>            <td background="http://i.imgur.com/7DQ0RU1.png">                <div style="line-height: 1.5;position: relative;padding-top:32px;padding-bottom:10px;">                    <div style="background-color: rgba(27,94,32,.9);border-radius: 8px;padding: 2% 3%; padding-bottom:4%; color: #eee;margin-left:32px;margin-right:32px">                        <h1><strong>過溪行 —— 探尋一種舊市區的桃味 <strong></h1>                        <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao">《過溪行 —— 探尋一種舊市區的桃味（Tao-way）》全系列報導：</a><br>                        《過溪行》是桃步走團隊以桃園火車站至大廟一帶，這塊被我們稱為「舊市區」的區塊為焦點的系列報導。</p>                             <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E7%81%AB%E8%BB%8A%E7%AB%99%E5%89%8D-%E4%B8%AD%E6%AD%A3%E8%B7%AF-%E5%A4%A7%E5%BB%9F%E5%8F%A3-a52a63a22a40#.qm9kewop3">〈桃園市區簡史｜火車站前、中正路、大廟口——過於筆直的發展想像〉</a><br>                            簡述了桃園舊市區的發展史</p>                             <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E5%85%AB%E5%8D%81%E5%B9%B4%E6%9D%B1%E9%96%80%E6%BA%AA-%E8%B5%B0%E5%94%B1%E4%BE%9D%E8%88%8A-e387f9aa0753">〈人物｜八十年東門溪 走唱依舊——手風琴阿伯黃邦坌〉</a><br>採訪了常在舊市區路旁拉手風琴的黃邦坌阿伯，記錄他的故事，以及他所見證的市區變化</p>                             <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E6%94%9D%E5%BD%B1%E7%B4%80%E9%8C%84-%E4%B8%8D%E5%B0%8F%E5%BF%83%E5%B0%B1%E8%B5%B0%E4%BE%86%E9%80%99%E8%A3%A1%E4%BA%86-b0b447a38961">〈攝影｜不小心就走來這裡了——舊天天百貨大樓與社區〉</a><br>桃步走團隊走進曾經繁華但如今沒落的天天百貨攝影，天天百貨彷彿映照著舊市區的現況</p>                             <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E4%BA%BA%E7%89%A9-%E5%B8%82%E5%8D%80%E7%B8%BD%E6%98%AF%E9%80%9D%E5%8E%BB-%E6%9D%B1%E9%96%80%E5%B8%82%E5%A0%B4%E8%97%9D%E8%A1%93%E8%A1%8C%E5%8B%95-bf88f32d49e1#.4mq4m6bx0">〈人物｜市區總是逝去：東門市場藝術行動——〈只是光影〉蔡奕勳〉</a><br>訪問了「只是光影」的蔡奕勳，藉由他的視角重回當年的東門市場反迫遷藝術行動</p>                             <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E6%88%91%E5%80%91%E9%A0%86%E5%BE%9E-%E6%88%91%E5%80%91%E7%9F%AD%E8%A6%96-16b99228ed7b#.tb600osud">〈人物｜我們順從；我們短視：桃園的集體城市失憶——〈陽明一街實驗工坊〉藍博瀚〉</a><br>                                訪問了「陽明一街」的藍博瀚，記下他為了保存舊市區文化資產的努力，以及發展之外，市區的另一種可能都市景觀</p>                                                          <p><a style="color:#FFF59D" href="https://medium.com/@BacktoTao/%E9%80%9A%E5%8B%A4%E6%A8%82%E9%9F%B3-%E6%BC%82%E6%B5%81-%E8%BC%89%E6%B5%AE%E8%BC%89%E6%B2%88%E7%9A%84%E7%A7%BB%E5%8B%95-4d0cdf1e40a6#.mcoszspo6">〈通勤樂音｜漂流，載浮載沈的移動——盧恩騎士音樂專欄〉</a><br>向盧恩騎士曼波電台邀稿，請他以桃園人經常通勤、移動的特性為主題來進行選歌</p>                        <p>繼《桃生方式》後第二次寫報導，有點緊張，也不知道會不會有第二刊，各位如果讀完了，行有餘力可以給我們一點意見，請填寫一下這份問卷:<a style="color:#FFF59D" href="https://backtotao.typeform.com/to/N4G2v4">過溪行不行</a>，我們會珍惜每個回答！                        </p>                        <br><small>歡迎到 <a style="color:#FFF59D" href="https://www.facebook.com/peachdontgo/">桃步走粉絲頁</a> 獲得更多資訊，並追蹤 <a style="color:#FFF59D" href="https://medium.com/@BacktoTao">桃步走medium</a><br>*****本信件由系統自動寄出，請勿回覆。*****</small>                    </div>                    <p style="margin-left:32px;margin-right:32px;background-color: rgba(27,94,32,.8);border-radius: 8px;text-align: center">                        <img src=" http://i.imgur.com/YvBys4t.png" align="middle" height="70">                    </p>                </div>            </td>        </tr>    </tbody></table>'
+    });
+  }
+}
